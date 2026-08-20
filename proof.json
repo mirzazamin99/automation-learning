@@ -1,0 +1,55 @@
+{
+  "phd": {
+    "value": "PhD, Literary Studies",
+    "claim": "PhD in Literary Studies, Department of Indian Languages and Literary Studies, University of Delhi, awarded February 2026",
+    "source": "CV, as of Feb 2026",
+    "neverSay": ["Dr of Psychology", "doctorate in human behaviour", "PhD in coaching", "behavioural scientist"],
+    "settled": "2026-08-16, Aadil, from CV"
+  },
+  "teaching_years": {
+    "value": null,
+    "claim": "DESCRIBED, NEVER COUNTED. Say 'has taught English and literature at university and IB level'. No number of years, no number of students, until sourced.",
+    "source": "open question, see queue",
+    "neverSay": ["15 years of teaching", "over a decade", "hundreds of students", "thousands of students"],
+    "settled": null
+  },
+  "conferences": {
+    "value": "23",
+    "claim": "Has delivered 23 or more research presentations at national and international conferences and seminars",
+    "requires": ["research presentations", "conferences"],
+    "within": 300,
+    "source": "CV self-report, as of Feb 2026, not independently verified",
+    "neverSay": ["international speaker", "keynote speaker", "spoken at 23 events"],
+    "settled": "2026-08-16, Aadil, from CV"
+  },
+  "languages": {
+    "value": 5,
+    "claim": "Kashmiri native, English and Urdu at full professional proficiency, Hindi spoken well, Arabic read",
+    "requires": ["Kashmiri", "Urdu"],
+    "within": 300,
+    "source": "CV, as of Feb 2026",
+    "neverSay": ["fluent in five languages", "polyglot", "speaks five languages"],
+    "settled": "2026-08-16, Aadil, from CV"
+  },
+  "coaching_outcomes": {
+    "value": null,
+    "claim": "BANNED UNTIL SOURCED. No success rate, no number of people helped, no before-and-after, no testimonial, until real ones are collected with consent.",
+    "source": "none",
+    "neverSay": ["success rate", "% of clients", "helped hundreds", "proven method", "transformed"],
+    "settled": null
+  },
+  "prices": {
+    "value": null,
+    "claim": "UNSETTLED. Proposals exist internally. Nothing goes on a public surface until Aadil settles it and it is recorded here.",
+    "source": "internal proposal only",
+    "neverSay": ["starting from", "as low as", "worth Rs 50,000"],
+    "settled": null
+  },
+  "openQuestions": [
+    "How many people has he actually done this for, by name?",
+    "Will any of them give a quotable line with consent?",
+    "How many years has he taught, exactly, and at what levels?",
+    "What does he charge, and what did he refuse to charge?",
+    "Is the referral psychologist named yet?"
+  ]
+}
