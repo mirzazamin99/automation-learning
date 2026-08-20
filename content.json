@@ -1,0 +1,27 @@
+{
+  "brand": {
+    "colors": {
+      "ink": "#14110F",
+      "paper": "#F7F4EE",
+      "oxblood": "#6B1D1D",
+      "gold": "#B8860B",
+      "muted": "#6E675F",
+      "hair": "#E3DDD2"
+    },
+    "usage": {
+      "ink": "All body text. Near-black, warm.",
+      "paper": "All backgrounds. Bone, never white.",
+      "oxblood": "The brand colour. Headings and rules.",
+      "gold": "Accent. Almost never, and never twice on one screen.",
+      "muted": "Secondary text only.",
+      "hair": "Borders and rules."
+    },
+    "typography": "Serif for headings and for body. Wide margins, generous line height, long measure.",
+    "neverUse": ["gradients", "glows", "stock photography", "testimonial cards with stars", "before-and-after imagery", "countdown timers", "exclamation marks", "em dashes in body copy"],
+    "bannedWords": ["transform", "journey", "unlock", "empower", "mindset", "hustle", "holistic", "wellness", "elevate", "manifest", "best version of yourself", "level up"]
+  },
+  "flags": {
+    "showPrices": false,
+    "isDraftCopy": true
+  }
+}
