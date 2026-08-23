@@ -23,5 +23,76 @@
   "flags": {
     "showPrices": false,
     "isDraftCopy": true
+  },
+  "reading": {
+    "intro": "Twenty five questions. Answer honestly, nobody sees these but Aamir.",
+    "groups": [
+      {
+        "id": "where",
+        "label": "Where you actually are",
+        "questions": [
+          { "id": "q1", "text": "Describe last Sunday, hour by hour, as honestly as you can.", "rows": 4 },
+          { "id": "q2", "text": "What did you spend money on in the last week that you would rather not admit to?", "rows": 4 },
+          { "id": "q3", "text": "What takes up the most room in your head that you never do anything about?", "rows": 4 },
+          { "id": "q4", "text": "When you open your phone without meaning to, what do you open?", "rows": 4 },
+          { "id": "q5", "text": "What time did you wake up each day this week, and what happened in the first hour?", "rows": 4 },
+          { "id": "q6", "text": "Who did you actually speak to this week, and about what?", "rows": 4 }
+        ]
+      },
+      {
+        "id": "want",
+        "label": "What you say you want",
+        "questions": [
+          { "id": "q7", "text": "What have you been about to start for a year now?", "rows": 4 },
+          { "id": "q8", "text": "If nothing changes, what will you regret in five years?", "rows": 4 },
+          { "id": "q9", "text": "What would you do with a free Tuesday, no obligations at all?", "rows": 4 },
+          { "id": "q10", "text": "What do you want that you have never said out loud?", "rows": 4 },
+          { "id": "q11", "text": "What are you pretending to want, and for whose benefit?", "rows": 4 },
+          { "id": "q12", "text": "What does a normal day look like for the version of you that respects himself?", "rows": 4 }
+        ]
+      },
+      {
+        "id": "inTheWay",
+        "label": "What is in the way",
+        "questions": [
+          { "id": "q13", "text": "What is the reason you give people for not starting?", "rows": 4 },
+          { "id": "q14", "text": "What is the real reason, the one you do not say out loud?", "rows": 4 },
+          { "id": "q15", "text": "What has to become false about you for this to work?", "rows": 4 },
+          { "id": "q16", "text": "Who are you performing for when you avoid this?", "rows": 4 },
+          { "id": "q17", "text": "What is the last thing you quit, and why did you actually stop?", "rows": 4 },
+          { "id": "q18", "text": "What skill did you used to have that you have let go of?", "rows": 4 }
+        ]
+      },
+      {
+        "id": "have",
+        "label": "What you already have",
+        "questions": [
+          { "id": "q19", "text": "What good thing have you done this month that nobody gave you credit for?", "rows": 4 },
+          { "id": "q20", "text": "Who would help you if you actually asked them?", "rows": 4 },
+          { "id": "q21", "text": "What is already working in your life, even if you take it for granted?", "rows": 4 },
+          { "id": "q22", "text": "What is the smallest possible thing you could do tomorrow to move forward?", "rows": 4 }
+        ]
+      },
+      {
+        "id": "practical",
+        "label": "Practical",
+        "questions": [
+          { "id": "q23", "text": "Being honest and pessimistic, how much time do you actually have each day?", "rows": 4 },
+          { "id": "q24", "text": "What stays non-negotiable no matter what?", "rows": 4 },
+          { "id": "q25", "text": "What would make the next 14 days worth it?", "rows": 4 }
+        ]
+      }
+    ]
+  },
+  "emails": {
+    "confirm": {
+      "subject": "Your reading, in the next three days",
+      "body": "Thank you for answering these questions honestly. It takes something to sit with the uncomfortable ones. Your reading will be ready within the next three days. This is not a substitute for clinical or medical support. Aamir"
+    },
+    "delivery": {
+      "subject": "Your reading",
+      "body": "Attached is your reading, along with a short video walking through it. Included is a 14-day plan to get started. Aamir"
+    }
   }
 }
+
