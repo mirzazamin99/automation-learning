@@ -26,6 +26,23 @@
   },
   "reading": {
     "intro": "Twenty five questions. Answer honestly, nobody sees these but Aamir.",
+    "form": {
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "submitLabel": "Submit",
+      "submittingLabel": "Sending",
+      "successWithEmail": "Thank you. Check your email for confirmation.",
+      "successWithoutEmail": "Thank you. Your answers were saved. The confirmation email could not be sent.",
+      "duplicateError": "You already submitted a reading in the last ten minutes. Check your email, or try again shortly.",
+      "genericError": "Something went wrong. Please try again.",
+      "networkError": "Could not reach the server. Check your connection and try again.",
+      "blankAnswerError": "This question was left blank.",
+      "tooLongError": "This answer is too long. Keep it under 5000 characters.",
+      "formulaCharError": "This answer cannot start a line with =, +, - or @.",
+      "invalidEmailError": "Enter a valid email address.",
+      "nameRequiredError": "Enter your name.",
+      "emailRequiredError": "Enter your email."
+    },
     "groups": [
       {
         "id": "where",
