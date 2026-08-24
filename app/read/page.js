@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import content from "../../content.json";
-import { MAX_ANSWER_LENGTH } from "../../lib/validate-reading";
 
 const { reading } = content;
 const { form } = reading;
@@ -95,7 +94,6 @@ export default function ReadPage() {
                   {q.text}
                   <textarea
                     rows={q.rows}
-                    maxLength={MAX_ANSWER_LENGTH}
                     value={answers[q.id] || ""}
                     onChange={(e) => updateAnswer(q.id, e.target.value)}
                     required
