@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "../../../lib/supabase-admin";
 import { validateSubmission } from "../../../lib/validate-reading";
+import { generateDraft, isScreeningFlagged } from "../../../lib/generate-draft";
 import content from "../../../content.json";
 
 const DUPLICATE_WINDOW_MINUTES = 10;
@@ -69,7 +70,46 @@ export async function POST(request) {
     console.error("Confirmation email failed:", err.message);
   }
 
+  // The submission is already saved at this point. Whatever happens below,
+  // the response the user gets back must stay a success -- drafting is a
+  // best-effort follow-up, not a condition of the submission succeeding.
+  await draftSubmission(supabaseAdmin, inserted.id, data.answers);
+
   return NextResponse.json({ ok: true, submissionId: inserted.id, emailSent });
+}
+
+async function draftSubmission(supabaseAdmin, submissionId, answers) {
+  if (isScreeningFlagged(answers)) {
+    const { error } = await supabaseAdmin
+      .from("submissions")
+      .update({ flagged: true, draft_status: "flagged" })
+      .eq("id", submissionId);
+
+    if (error) console.error("Failed to mark submission as flagged:", error.message);
+    return;
+  }
+
+  let draft;
+  try {
+    draft = await generateDraft(answers);
+  } catch (err) {
+    console.error("Draft generation failed:", err.message);
+
+    const { error } = await supabaseAdmin
+      .from("submissions")
+      .update({ draft_status: "failed" })
+      .eq("id", submissionId);
+
+    if (error) console.error("Failed to mark draft as failed:", error.message);
+    return;
+  }
+
+  const { error } = await supabaseAdmin
+    .from("submissions")
+    .update({ draft, draft_status: "generated" })
+    .eq("id", submissionId);
+
+  if (error) console.error("Failed to save generated draft:", error.message);
 }
 
 async function sendConfirmationEmail(toEmail) {
