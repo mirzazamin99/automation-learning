@@ -1,8 +1,8 @@
 -- Run this once in the Supabase dashboard: SQL Editor -> New query -> paste -> Run.
--- Adds AI drafting state to submissions: the generated draft itself, whether
--- the screening question flagged this person for manual handling instead of
--- an AI draft, and a status column so every row's drafting outcome is known
--- honestly rather than assumed.
+-- Adds AI drafting state to submissions: the generated draft itself, a
+-- manual-review flag (currently unused, kept for future manual handling),
+-- and a status column so every row's drafting outcome is known honestly
+-- rather than assumed.
 
 alter table submissions
   add column if not exists draft jsonb,

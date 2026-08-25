@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "../../../lib/supabase-admin";
 import { validateSubmission } from "../../../lib/validate-reading";
-import { generateDraft, isScreeningFlagged } from "../../../lib/generate-draft";
+import { generateDraft } from "../../../lib/generate-draft";
 import content from "../../../content.json";
 
 const DUPLICATE_WINDOW_MINUTES = 10;
@@ -79,16 +79,6 @@ export async function POST(request) {
 }
 
 async function draftSubmission(supabaseAdmin, submissionId, answers) {
-  if (isScreeningFlagged(answers)) {
-    const { error } = await supabaseAdmin
-      .from("submissions")
-      .update({ flagged: true, draft_status: "flagged" })
-      .eq("id", submissionId);
-
-    if (error) console.error("Failed to mark submission as flagged:", error.message);
-    return;
-  }
-
   let draft;
   try {
     draft = await generateDraft(answers);
