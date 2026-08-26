@@ -6,6 +6,7 @@ import content from "../../../content.json";
 import { theme } from "../../../lib/operator-theme";
 
 const { login } = content.operator;
+const { descriptor } = content.brand;
 
 export default function OperatorLoginPage() {
   const router = useRouter();
@@ -41,33 +42,41 @@ export default function OperatorLoginPage() {
   }
 
   return (
-    <main style={theme.page}>
-      <div style={theme.narrowContainer}>
-        <h1 style={{ ...theme.heading, marginBottom: "2.5rem" }}>{login.heading}</h1>
-        <form onSubmit={handleSubmit}>
-          <label style={theme.label}>
-            {login.passwordLabel}
-            <input
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              required
-              autoFocus
-              style={theme.input}
-            />
-          </label>
+    <main className="operator-login-screen" style={theme.loginScreen}>
+      <div className="operator-login-left" style={theme.loginLeftPanel}>
+        <h1 style={theme.loginPanelTitle}>{login.panelTitle}</h1>
+        <p style={theme.loginPanelDescriptor}>{descriptor}</p>
+      </div>
 
-          {error && <p style={theme.errorText}>{error}</p>}
+      <div style={theme.loginRightPanel}>
+        <div style={theme.loginFormWrap}>
+          <h2 style={theme.signInHeading}>{login.heading}</h2>
+          <form onSubmit={handleSubmit}>
+            <label style={theme.loginLabel}>
+              {login.passwordLabel}
+              <input
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                required
+                autoFocus
+                className="operator-input"
+                style={theme.loginInput}
+              />
+            </label>
 
-          <button
-            type="submit"
-            disabled={submitting}
-            className="operator-quiet-button"
-            style={{ ...theme.quietButton, marginTop: "0.5rem" }}
-          >
-            {submitting ? login.submittingLabel : login.submitLabel}
-          </button>
-        </form>
+            {error && <p style={theme.errorText}>{error}</p>}
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="operator-primary-button"
+              style={{ ...theme.primaryButton, ...theme.loginSubmitButton }}
+            >
+              {submitting ? login.submittingLabel : login.submitLabel}
+            </button>
+          </form>
+        </div>
       </div>
     </main>
   );

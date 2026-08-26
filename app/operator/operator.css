@@ -26,6 +26,26 @@
   color: var(--operator-ink);
 }
 
+/* Focus state: border shifts to oxblood, no glow. */
+.operator-input {
+  outline: none;
+}
+
+.operator-input:focus {
+  border-color: var(--operator-oxblood);
+}
+
+@media (max-width: 760px) {
+  .operator-login-screen {
+    grid-template-columns: 1fr !important;
+  }
+
+  .operator-login-left {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+}
+
 /* Two-column detail layout: a real divider between answers and draft. */
 .operator-draft-column {
   border-left: 2px solid var(--operator-muted);

@@ -20,6 +20,7 @@
       "description": "Serif for headings and for body. Wide margins, generous line height, long measure.",
       "fontFamily": "'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif"
     },
+    "descriptor": "Life authorship. Read your life. Then write it properly.",
     "neverUse": ["gradients", "glows", "stock photography", "testimonial cards with stars", "before-and-after imagery", "countdown timers", "exclamation marks", "em dashes in body copy"],
     "bannedWords": ["transform", "journey", "unlock", "empower", "mindset", "hustle", "holistic", "wellness", "elevate", "manifest", "best version of yourself", "level up"]
   },
@@ -120,7 +121,8 @@
   "operator": {
     "unauthenticatedLabel": "Not authenticated.",
     "login": {
-      "heading": "Operator",
+      "panelTitle": "Reading operator",
+      "heading": "Sign in",
       "passwordLabel": "Password",
       "submitLabel": "Sign in",
       "submittingLabel": "Signing in",
