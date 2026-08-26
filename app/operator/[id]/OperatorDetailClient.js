@@ -32,7 +32,7 @@ export default function OperatorDetailClient({ submission }) {
   const hasDraft = Boolean(submission.draft || submission.final);
   const [fields, setFields] = useState(draftToFields(submission.final || submission.draft));
   const [saveState, setSaveState] = useState("idle"); // idle | saving | saved | error
-  const [sendState, setSendState] = useState("idle"); // idle | saving | error
+  const [sendState, setSendState] = useState("idle"); // idle | saving | error | emailFailed
   const [sent, setSent] = useState(submission.sent);
   const [sentAt, setSentAt] = useState(submission.sent_at);
 
@@ -68,7 +68,7 @@ export default function OperatorDetailClient({ submission }) {
       setSent(true);
       setSentAt(result.sentAt);
       setSaveState("saved");
-      setSendState("idle");
+      setSendState(result.emailSent === false ? "emailFailed" : "idle");
     } catch {
       setSendState("error");
     }
@@ -174,6 +174,9 @@ export default function OperatorDetailClient({ submission }) {
                 </button>
               )}
               {sendState === "error" && <span style={theme.errorText}>{detail.saveErrorLabel}</span>}
+              {sendState === "emailFailed" && (
+                <span style={theme.errorText}>{detail.emailFailedLabel}</span>
+              )}
             </div>
           </div>
         )}

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "../../../lib/supabase-admin";
 import { validateSubmission } from "../../../lib/validate-reading";
 import { generateDraft } from "../../../lib/generate-draft";
+import { sendConfirmationEmail } from "../../../lib/send-email";
 import content from "../../../content.json";
 
 const DUPLICATE_WINDOW_MINUTES = 10;
@@ -100,38 +101,4 @@ async function draftSubmission(supabaseAdmin, submissionId, answers) {
     .eq("id", submissionId);
 
   if (error) console.error("Failed to save generated draft:", error.message);
-}
-
-async function sendConfirmationEmail(toEmail) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL;
-
-  if (!apiKey || !fromEmail) {
-    // Resend is not configured yet. We don't guess at keys -- the caller
-    // just gets emailSent: false and the submission is still saved.
-    return false;
-  }
-
-  const { subject, body } = content.emails.confirm;
-
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: fromEmail,
-      to: toEmail,
-      subject,
-      text: body,
-    }),
-  });
-
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Resend API error (${res.status}): ${text}`);
-  }
-
-  return true;
 }

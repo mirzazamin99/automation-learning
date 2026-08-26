@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "../../../../../lib/supabase-admin";
+import { sendReadingEmail } from "../../../../../lib/send-email";
 import content from "../../../../../content.json";
 
 const { detail } = content.operator;
@@ -43,7 +44,7 @@ export async function PATCH(request, { params }) {
     .from("submissions")
     .update(update)
     .eq("id", id)
-    .select("sent, sent_at")
+    .select("sent, sent_at, email, final")
     .single();
 
   if (error) {
@@ -51,5 +52,18 @@ export async function PATCH(request, { params }) {
     return NextResponse.json({ error: detail.saveErrorLabel }, { status: 500 });
   }
 
-  return NextResponse.json({ ok: true, sent: data.sent, sentAt: data.sent_at });
+  // The sent/sent_at columns are already saved at this point. Whatever
+  // happens below, the response must still report success -- delivery is
+  // a best-effort follow-up, not a condition of marking as sent.
+  let emailSent = null;
+  if (body.sent === true) {
+    try {
+      emailSent = await sendReadingEmail(data.email, data.final);
+    } catch (err) {
+      console.error("Reading delivery email failed:", err.message);
+      emailSent = false;
+    }
+  }
+
+  return NextResponse.json({ ok: true, sent: data.sent, sentAt: data.sent_at, emailSent });
 }

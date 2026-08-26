@@ -161,7 +161,8 @@
       "markingAsSentLabel": "Marking as sent",
       "sentOnLabel": "Sent",
       "flaggedNoticeLabel": "This submission was flagged for review.",
-      "failedNoticeLabel": "Drafting failed for this submission."
+      "failedNoticeLabel": "Drafting failed for this submission.",
+      "emailFailedLabel": "Marked as sent, but the email could not be delivered. Send it another way."
     }
   }
 }
