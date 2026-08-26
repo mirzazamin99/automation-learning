@@ -1,19 +1,46 @@
-/* Hover states only. No transitions, no motion, per the calm-screen brief. */
+/* Hover states only. No transitions beyond simple ones, no glow, no gradient. */
 
 .operator-quiet-button,
 .operator-primary-button {
   cursor: pointer;
 }
 
-.operator-quiet-button:hover:not(:disabled),
-.operator-primary-button:hover:not(:disabled) {
+.operator-quiet-button:hover:not(:disabled) {
   background-color: var(--operator-hover-bg);
+}
+
+.operator-primary-button:hover:not(:disabled) {
+  filter: brightness(0.88);
+}
+
+.operator-queue-row {
+  transition: background-color 0.12s ease, box-shadow 0.12s ease;
 }
 
 .operator-queue-row:hover {
   background-color: var(--operator-hover-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .operator-back-link:hover {
   color: var(--operator-ink);
+}
+
+/* Two-column detail layout: a real divider between answers and draft. */
+.operator-draft-column {
+  border-left: 2px solid var(--operator-muted);
+}
+
+@media (max-width: 880px) {
+  .operator-answers-column {
+    padding-right: 0 !important;
+  }
+
+  .operator-draft-column {
+    border-left: none;
+    border-top: 2px solid var(--operator-muted);
+    padding-left: 0 !important;
+    padding-top: 48px;
+    margin-top: 48px;
+  }
 }

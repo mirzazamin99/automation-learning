@@ -29,7 +29,7 @@ export default async function OperatorSubmissionPage({ params }) {
         </Link>
 
         <div style={theme.detailIntro}>
-          <h1 style={theme.heading}>{submission.name}</h1>
+          <h1 style={theme.personName}>{submission.name}</h1>
           <p style={theme.subHeading}>{submission.email}</p>
 
           {submission.flagged && <p style={theme.noticeText}>{detail.flaggedNoticeLabel}</p>}

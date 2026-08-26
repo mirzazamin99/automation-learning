@@ -76,11 +76,13 @@ export default function OperatorDetailClient({ submission }) {
 
   return (
     <div style={theme.detailGrid}>
-      <section>
-        <h2 style={theme.answerGroupLabel}>{detail.answersHeading}</h2>
+      <section className="operator-answers-column" style={theme.answersColumn}>
+        <h2 style={theme.sectionHeading}>{detail.answersHeading}</h2>
+        <div style={theme.sectionHeadingRule} />
         {groups.map((group) => (
           <div key={group.id} style={theme.answerGroup}>
             <h3 style={theme.answerGroupLabel}>{group.label}</h3>
+            <div style={theme.sectionHeadingRule} />
             {group.questions.map((question) => (
               <div key={question.id} style={theme.answerItem}>
                 <p style={theme.answerQuestion}>{question.text}</p>
@@ -91,15 +93,16 @@ export default function OperatorDetailClient({ submission }) {
         ))}
       </section>
 
-      <section style={theme.draftColumn}>
-        <h2 style={theme.answerGroupLabel}>{detail.draftHeading}</h2>
+      <section className="operator-draft-column" style={theme.draftColumn}>
+        <h2 style={theme.sectionHeading}>{detail.draftHeading}</h2>
+        <div style={theme.sectionHeadingRule} />
 
         {!hasDraft && <p style={theme.mutedText}>{detail.noDraftLabel}</p>}
 
         {hasDraft && (
-          <>
+          <div style={theme.draftCard}>
             <label style={theme.fieldLabel}>
-              {detail.whatTheyActuallySayLabel}
+              <span style={theme.fieldLabelText}>{detail.whatTheyActuallySayLabel}</span>
               <textarea
                 value={fields.whatTheyActuallySay}
                 onChange={(event) => updateField("whatTheyActuallySay", event.target.value)}
@@ -109,7 +112,7 @@ export default function OperatorDetailClient({ submission }) {
             </label>
 
             <label style={theme.fieldLabel}>
-              {detail.theOneThingInTheWayLabel}
+              <span style={theme.fieldLabelText}>{detail.theOneThingInTheWayLabel}</span>
               <textarea
                 value={fields.theOneThingInTheWay}
                 onChange={(event) => updateField("theOneThingInTheWay", event.target.value)}
@@ -119,7 +122,7 @@ export default function OperatorDetailClient({ submission }) {
             </label>
 
             <label style={theme.fieldLabel}>
-              {detail.fourteenDaysLabel}
+              <span style={theme.fieldLabelText}>{detail.fourteenDaysLabel}</span>
               <span style={theme.fieldHint}>{detail.fourteenDaysHint}</span>
               <textarea
                 value={fields.fourteenDays}
@@ -129,8 +132,8 @@ export default function OperatorDetailClient({ submission }) {
               />
             </label>
 
-            <label style={theme.fieldLabel}>
-              {detail.notesLabel}
+            <label style={{ ...theme.fieldLabel, marginBottom: 0 }}>
+              <span style={theme.fieldLabelText}>{detail.notesLabel}</span>
               <textarea
                 value={fields.notes}
                 onChange={(event) => updateField("notes", event.target.value)}
@@ -172,7 +175,7 @@ export default function OperatorDetailClient({ submission }) {
               )}
               {sendState === "error" && <span style={theme.errorText}>{detail.saveErrorLabel}</span>}
             </div>
-          </>
+          </div>
         )}
       </section>
     </div>

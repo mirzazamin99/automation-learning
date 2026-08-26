@@ -61,12 +61,18 @@ export default async function OperatorQueuePage() {
           <div style={theme.queueList}>
             {rows.map((row) => {
               const marked = row.flagged || row.draft_status === "failed";
+              const badgeLabel = row.flagged
+                ? queue.flaggedLabel
+                : queue.statusLabels[row.draft_status] || row.draft_status;
               return (
                 <Link key={row.id} href={`/operator/${row.id}`} style={theme.queueRowLink}>
                   <div
                     className="operator-queue-row"
                     style={{ ...theme.queueRow, ...(marked ? theme.queueRowMarked : null) }}
                   >
+                    <span style={{ ...theme.badge, ...(marked ? theme.badgeFlagged : theme.badgeNormal) }}>
+                      {badgeLabel}
+                    </span>
                     <div>
                       <p style={theme.queueRowName}>{row.name}</p>
                       <p style={theme.mutedText}>{row.email}</p>
