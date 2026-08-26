@@ -70,14 +70,14 @@ export default async function OperatorQueuePage() {
                     className="operator-queue-row"
                     style={{ ...theme.queueRow, ...(marked ? theme.queueRowMarked : null) }}
                   >
-                    <span style={{ ...theme.badge, ...(marked ? theme.badgeFlagged : theme.badgeNormal) }}>
-                      {badgeLabel}
-                    </span>
                     <div>
                       <p style={theme.queueRowName}>{row.name}</p>
                       <p style={theme.mutedText}>{row.email}</p>
                     </div>
                     <div style={theme.queueRowMeta}>
+                      <span style={{ ...theme.badge, ...(marked ? theme.badgeFlagged : theme.badgeNormal) }}>
+                        {badgeLabel}
+                      </span>
                       <p style={theme.mutedText}>{formatDate(row.submitted_at)}</p>
                       <p style={theme.queueRowStatus}>{statusText(row)}</p>
                     </div>

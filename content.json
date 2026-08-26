@@ -122,6 +122,7 @@
     "unauthenticatedLabel": "Not authenticated.",
     "login": {
       "panelTitle": "Reading operator",
+      "tagline": "Their words, your work.",
       "heading": "Sign in",
       "passwordLabel": "Password",
       "submitLabel": "Sign in",

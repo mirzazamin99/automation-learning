@@ -6,7 +6,6 @@ import content from "../../../content.json";
 import { theme } from "../../../lib/operator-theme";
 
 const { login } = content.operator;
-const { descriptor } = content.brand;
 
 export default function OperatorLoginPage() {
   const router = useRouter();
@@ -45,7 +44,7 @@ export default function OperatorLoginPage() {
     <main className="operator-login-screen" style={theme.loginScreen}>
       <div className="operator-login-left" style={theme.loginLeftPanel}>
         <h1 style={theme.loginPanelTitle}>{login.panelTitle}</h1>
-        <p style={theme.loginPanelDescriptor}>{descriptor}</p>
+        <p style={theme.loginPanelDescriptor}>{login.tagline}</p>
       </div>
 
       <div style={theme.loginRightPanel}>
