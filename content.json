@@ -16,7 +16,10 @@
       "muted": "Secondary text only.",
       "hair": "Borders and rules."
     },
-    "typography": "Serif for headings and for body. Wide margins, generous line height, long measure.",
+    "typography": {
+      "description": "Serif for headings and for body. Wide margins, generous line height, long measure.",
+      "fontFamily": "'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif"
+    },
     "neverUse": ["gradients", "glows", "stock photography", "testimonial cards with stars", "before-and-after imagery", "countdown timers", "exclamation marks", "em dashes in body copy"],
     "bannedWords": ["transform", "journey", "unlock", "empower", "mindset", "hustle", "holistic", "wellness", "elevate", "manifest", "best version of yourself", "level up"]
   },
@@ -112,6 +115,50 @@
     "delivery": {
       "subject": "Your reading",
       "body": "Attached is your reading, along with a short video walking through it. Included is a 14-day plan to get started. Aamir"
+    }
+  },
+  "operator": {
+    "unauthenticatedLabel": "Not authenticated.",
+    "login": {
+      "heading": "Operator",
+      "passwordLabel": "Password",
+      "submitLabel": "Sign in",
+      "submittingLabel": "Signing in",
+      "errorLabel": "That password is not right."
+    },
+    "queue": {
+      "heading": "Readings",
+      "signOutLabel": "Sign out",
+      "emptyLabel": "No submissions yet.",
+      "flaggedLabel": "Flagged",
+      "sentLabel": "Sent",
+      "loadErrorLabel": "Could not load submissions.",
+      "statusLabels": {
+        "pending": "Pending",
+        "generated": "Drafted",
+        "flagged": "Flagged",
+        "failed": "Failed"
+      }
+    },
+    "detail": {
+      "backLabel": "Back to readings",
+      "answersHeading": "Their answers",
+      "draftHeading": "The draft",
+      "noDraftLabel": "No draft was generated for this submission.",
+      "whatTheyActuallySayLabel": "What they actually say",
+      "theOneThingInTheWayLabel": "The one thing in the way",
+      "fourteenDaysLabel": "Fourteen days",
+      "fourteenDaysHint": "One line for each day.",
+      "notesLabel": "Notes",
+      "saveLabel": "Save",
+      "savingLabel": "Saving",
+      "savedLabel": "Saved",
+      "saveErrorLabel": "Could not save. Try again.",
+      "markAsSentLabel": "Mark as sent",
+      "markingAsSentLabel": "Marking as sent",
+      "sentOnLabel": "Sent",
+      "flaggedNoticeLabel": "This submission was flagged for review.",
+      "failedNoticeLabel": "Drafting failed for this submission."
     }
   }
 }

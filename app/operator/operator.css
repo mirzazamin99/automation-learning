@@ -1,0 +1,19 @@
+/* Hover states only. No transitions, no motion, per the calm-screen brief. */
+
+.operator-quiet-button,
+.operator-primary-button {
+  cursor: pointer;
+}
+
+.operator-quiet-button:hover:not(:disabled),
+.operator-primary-button:hover:not(:disabled) {
+  background-color: var(--operator-hover-bg);
+}
+
+.operator-queue-row:hover {
+  background-color: var(--operator-hover-bg);
+}
+
+.operator-back-link:hover {
+  color: var(--operator-ink);
+}
