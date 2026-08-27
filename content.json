@@ -336,5 +336,92 @@
         }
       ]
     }
+  },
+  "site": {
+    "draftNotice": "These words are a working draft, not Aamir's own, until he replaces them.",
+    "hero": {
+      "line1": "Tell me what you did last Sunday.",
+      "line2": "Hour by hour. Most people cannot get past lunch.",
+      "body": "Answer twenty-five questions and I will read your life back to you. One page, written by me, inside three days. There is no charge and nothing to buy afterwards.",
+      "buttonLabel": "Start the reading"
+    },
+    "agreeingTo": {
+      "heading": "What you are agreeing to",
+      "paragraphs": [
+        "Twenty-five questions, in writing, about twenty minutes. Several are uncomfortable on purpose. One of them asks where your money went last week, and most people answer that one twice.",
+        "Then I read them. Properly, the way I would read anything else, looking for what the answers are doing rather than what they say.",
+        "Three days later you get a page back: what is actually going on, the one thing in the way, and fourteen days of small moves. I record myself reading it to you, because a page gets skimmed and a voice does not.",
+        "If your answers are too thin to work with, I will tell you that rather than invent something around them."
+      ]
+    },
+    "about": {
+      "heading": "I have never been paid for this.",
+      "paragraphs": [
+        "For about ten years people have asked me to look at their lives, and I have. Friends mostly. Long conversations, then a page. I never charged and I never advertised, and this site is the first time I have treated any of it as more than a favour.",
+        "What I am is a reader. I have a doctorate in Literary Studies from the University of Delhi, and my working life has gone on teaching people to read closely, which means noticing what a text is doing underneath what it claims to be doing.",
+        "Your life is a text. You are writing it every day and you have never read it back. That is not a metaphor I am stretching for effect: the evidence of what you actually want is sitting in your own week, in ordinary detail, and nobody ever goes and looks.",
+        "I am not a therapist. I will not pretend to be one."
+      ]
+    },
+    "method": {
+      "heading": "Read. Plot. Draft. Revise.",
+      "intro": "Four moves, and they only work in that order.",
+      "moves": [
+        {
+          "number": "01",
+          "title": "Read",
+          "body": "The audit. Where your time, money and attention went last month, measured rather than remembered. This is the part where people go quiet."
+        },
+        {
+          "number": "02",
+          "title": "Plot",
+          "body": "What the life is for. Not a list of goals. A direction, what it costs, and what you are giving up in order to go that way, because a plan that gives up nothing is a wish with better handwriting."
+        },
+        {
+          "number": "03",
+          "title": "Draft",
+          "body": "The daily sheet. One page. What today is for."
+        },
+        {
+          "number": "04",
+          "title": "Revise",
+          "body": "Sunday. You reread the week you actually had, and change the one ahead. Every method I have come across skips this, and every one of them stops working somewhere around week three."
+        }
+      ]
+    },
+    "refusals": {
+      "heading": "What I will not do",
+      "items": [
+        "I will not tell you your life is fine when the evidence says otherwise.",
+        "I will not work with you if what you need is a therapist. I will say so in the first week, and I will give you a name.",
+        "I will not quote a success rate, because I do not have one that is a record rather than a hope.",
+        "I will not sell you a second thing while the first one is still working."
+      ]
+    },
+    "sheetTeaser": {
+      "heading": "The daily sheet",
+      "paragraphs": [
+        "One page. In the morning it asks what today is for and the single thing that has to happen. At night it asks what actually took the time.",
+        "That last question is the whole instrument. Answer it honestly for a fortnight and you may not need me at all.",
+        "Take it and use it without me. It is free and there is no email to give."
+      ]
+    },
+    "testimonials": {
+      "heading": "There are none on this page",
+      "body": "I have not asked anyone for one. When I have real ones, with permission, they will appear here, and there will be exactly as many as I have."
+    },
+    "boundary": {
+      "heading": "If you are struggling",
+      "paragraphs": [
+        "This is education and planning. It is not therapy and it is not medical care.",
+        "If what you are carrying needs clinical help, I will say so in the first week and give you a name. I would rather lose the work than take money for the wrong thing."
+      ],
+      "referralPlaceholder": "[Referral name and number to come]"
+    },
+    "footer": {
+      "heading": "The Draft",
+      "body": "One page a week. Something worth reading, and one thing worth doing before the next one arrives. No announcements.",
+      "buttonLabel": "Send it to me"
+    }
   }
 }
