@@ -320,6 +320,21 @@
       ],
       "detailQuestion": "What happened?",
       "detailOptional": true
+    },
+    "revision": {
+      "intro": "The week, in your own words. Answer plainly.",
+      "questions": [
+        {
+          "id": "missedDay",
+          "label": "The day it slipped",
+          "question": "Which day did you not do what you said, and what actually stopped you?"
+        },
+        {
+          "id": "directionCheck",
+          "label": "Direction check",
+          "question": "Does the direction you set still hold, or has it quietly changed?"
+        }
+      ]
     }
   }
 }
