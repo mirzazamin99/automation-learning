@@ -239,7 +239,7 @@
   "emails": {
     "confirm": {
       "subject": "Your reading, in the next three days",
-      "body": "Thank you for answering these questions honestly. It takes something to sit with the uncomfortable ones. Your reading will be ready within the next three days. This is not a substitute for clinical or medical support."
+      "body": "Thank you for answering those. Several of them are uncomfortable and you answered them anyway, which is most of the work.\n\nI read every submission myself and write the page myself. That takes up to three days. You will get one page back and a short video of me reading it to you.\n\nIf something in your life needs clinical support rather than planning, I will say so plainly rather than take you further. [Referral name and number to come]"
     },
     "delivery": {
       "subject": "Your reading",
