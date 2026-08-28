@@ -300,7 +300,7 @@
         {
           "id": "cost",
           "label": "Cost",
-          "question": "What will getting there cost you — really?"
+          "question": "What will getting there cost you, really?"
         },
         {
           "id": "givingUp",

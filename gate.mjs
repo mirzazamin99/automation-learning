@@ -37,12 +37,24 @@ const word = s => new RegExp(`(?<![\\w-])${esc(s)}(?![\\w-])`, 'gi');
 function selfReferenceRanges(text, filePath) {
   if (filePath !== 'content.json') return [];
   const ranges = [];
-  for (const key of ['"bannedWords"', '"neverUse"']) {
+  for (const key of ['"bannedWords"', '"neverUse"', '"refusals"']) {
     const keyIndex = text.indexOf(key);
     if (keyIndex === -1) continue;
     const bracketStart = text.indexOf('[', keyIndex);
     const bracketEnd = text.indexOf(']', bracketStart);
     if (bracketStart !== -1 && bracketEnd !== -1) ranges.push([bracketStart, bracketEnd]);
+  }
+  const promptKeyIndex = text.indexOf('"prompt"');
+  if (promptKeyIndex !== -1) {
+    const colonIndex = text.indexOf(':', promptKeyIndex);
+    const stringStart = text.indexOf('"', colonIndex);
+    let i = stringStart + 1;
+    while (i < text.length) {
+      if (text[i] === '\\') { i += 2; continue; }
+      if (text[i] === '"') break;
+      i++;
+    }
+    ranges.push([stringStart, i]);
   }
   return ranges;
 }
@@ -56,7 +68,11 @@ for (const file of files) {
   for (const [key, entry] of Object.entries(proof)) {
     if (key === 'openQuestions') continue;
     for (const phrase of entry.neverSay || []) {
-      if (word(phrase).test(text)) failures.push(file + ': banned phrasing "' + phrase + '"');
+      for (const m of text.matchAll(word(phrase))) {
+        if (insideRanges(m.index, exemptRanges)) continue;
+        failures.push(file + ': banned phrasing "' + phrase + '"');
+        break;
+      }
     }
   }
 
