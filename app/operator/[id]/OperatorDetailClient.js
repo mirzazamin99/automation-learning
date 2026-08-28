@@ -170,7 +170,9 @@ export default function OperatorDetailClient({ submission }) {
                   className="operator-primary-button"
                   style={theme.primaryButton}
                 >
-                  {sendState === "saving" ? detail.markingAsSentLabel : detail.markAsSentLabel}
+                  {sendState === "saving"
+                    ? "Sending"
+                    : `Send to ${submission.name?.split(" ")[0] || "them"}`}
                 </button>
               )}
               {sendState === "error" && <span style={theme.errorText}>{detail.saveErrorLabel}</span>}
