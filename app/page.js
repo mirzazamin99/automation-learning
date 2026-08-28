@@ -8,7 +8,7 @@ const pageStyle = {
   color: colors.ink,
   fontFamily: typography.fontFamily,
   minHeight: "100vh",
-  fontSize: "1.2rem",
+  fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
 };
 
 const wrap = {
@@ -40,7 +40,7 @@ const button = {
   padding: "0.75rem 1.5rem",
   border: "none",
   fontFamily: typography.fontFamily,
-  fontSize: "1.15rem",
+  fontSize: "clamp(1rem, 2.5vw, 1.15rem)",
   cursor: "pointer",
   textDecoration: "none",
 };
@@ -52,10 +52,10 @@ export default function Home() {
         {flags.isDraftCopy && <p style={muted}>{site.draftNotice}</p>}
 
         <section>
-          <h1 style={{ ...heading, fontSize: "2.6rem", lineHeight: 1.3 }}>
+          <h1 style={{ ...heading, fontSize: "clamp(1.8rem, 6vw, 2.6rem)", lineHeight: 1.3 }}>
             {site.hero.line1}
           </h1>
-          <p style={{ fontSize: "1.35rem" }}>{site.hero.line2}</p>
+          <p style={{ fontSize: "clamp(1.1rem, 3.5vw, 1.35rem)" }}>{site.hero.line2}</p>
           <p style={{ marginTop: "1.5rem" }}>{site.hero.body}</p>
           <a href="/read" style={button}>{site.hero.buttonLabel}</a>
         </section>

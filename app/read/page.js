@@ -11,7 +11,7 @@ const pageStyle = {
   color: colors.ink,
   fontFamily: typography.fontFamily,
   minHeight: "100vh",
-  fontSize: "1.2rem",
+  fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
 };
 
 const wrap = {
@@ -34,7 +34,7 @@ const inputStyle = {
   display: "block",
   width: "100%",
   fontFamily: typography.fontFamily,
-  fontSize: "1.1rem",
+  fontSize: "clamp(0.95rem, 2.5vw, 1.1rem)",
   padding: "0.5rem",
   border: `1px solid ${colors.hair}`,
   backgroundColor: colors.paper,
@@ -49,7 +49,7 @@ const button = {
   padding: "0.75rem 1.5rem",
   border: "none",
   fontFamily: typography.fontFamily,
-  fontSize: "1.15rem",
+  fontSize: "clamp(1rem, 2.5vw, 1.15rem)",
   cursor: "pointer",
 };
 
