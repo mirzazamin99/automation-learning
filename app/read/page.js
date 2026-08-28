@@ -3,7 +3,7 @@ import { useState } from "react";
 import content from "../../content.json";
 
 const { reading, brand } = content;
-const { form, screening } = reading;
+const { form } = reading;
 const { colors, typography } = brand;
 
 const pageStyle = {
@@ -53,17 +53,9 @@ const button = {
   cursor: "pointer",
 };
 
-const screeningBox = {
-  border: `2px solid ${colors.oxblood}`,
-  padding: "1.5rem",
-  marginBottom: "2.5rem",
-  backgroundColor: colors.hair,
-};
-
 export default function ReadPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [screeningAnswer, setScreeningAnswer] = useState("");
   const [answers, setAnswers] = useState({});
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
@@ -81,7 +73,7 @@ export default function ReadPage() {
       const res = await fetch("/api/reading", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, answers, screening: screeningAnswer }),
+        body: JSON.stringify({ name, email, answers }),
       });
       result = await res.json();
       if (!res.ok) {
@@ -137,23 +129,6 @@ export default function ReadPage() {
               />
             </label>
           </div>
-
-          {screening && (
-            <div style={screeningBox}>
-              <h2 style={heading}>{screening.label}</h2>
-              <p>{screening.text}</p>
-              <textarea
-                rows={3}
-                value={screeningAnswer}
-                onChange={(e) => setScreeningAnswer(e.target.value)}
-                style={inputStyle}
-              />
-              <p style={{ fontSize: "0.9rem", color: colors.muted, marginTop: "0.75rem" }}>
-                {screening.note}
-              </p>
-            </div>
-          )}
-
           {reading.groups.map((group) => (
             <section key={group.id} style={{ marginBottom: "2.5rem" }}>
               <h2 style={heading}>{group.label}</h2>

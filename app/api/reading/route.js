@@ -16,8 +16,6 @@ export async function POST(request) {
   if (errors.length) {
     return NextResponse.json({ error: errors[0], errors }, { status: 400 });
   }
-  const screeningAnswer = typeof body.screening === "string" ? body.screening.trim() : "";
-  const isFlagged = screeningAnswer.length > 0;
   let supabaseAdmin;
   try {
     supabaseAdmin = getSupabaseAdmin();
@@ -47,14 +45,7 @@ export async function POST(request) {
   }
   const { data: inserted, error: insertError } = await supabaseAdmin
     .from("submissions")
-    .insert({
-      name: data.name,
-      email: data.email,
-      answers: data.answers,
-      screening: screeningAnswer || null,
-      flagged: isFlagged,
-      draft_status: isFlagged ? "flagged" : undefined,
-    })
+    .insert({ name: data.name, email: data.email, answers: data.answers })
     .select("id")
     .single();
   // Only report success once we have confirmed the row actually landed.
@@ -68,12 +59,10 @@ export async function POST(request) {
   } catch (err) {
     console.error("Confirmation email failed:", err.message);
   }
-  // A flagged submission never gets drafted. This is a safety requirement,
-  // not a style choice: nothing gets AI-generated for someone who indicated
-  // distress. It surfaces in the operator queue for a human to see first.
-  if (!isFlagged) {
-    await draftSubmission(supabaseAdmin, inserted.id, data.answers);
-  }
+  // The submission is already saved at this point. Whatever happens below,
+  // the response the user gets back must stay a success -- drafting is a
+  // best-effort follow-up, not a condition of the submission succeeding.
+  await draftSubmission(supabaseAdmin, inserted.id, data.answers);
   return NextResponse.json({ ok: true, submissionId: inserted.id, emailSent });
 }
 async function draftSubmission(supabaseAdmin, submissionId, answers) {
