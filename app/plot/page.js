@@ -4,6 +4,40 @@ import { useSearchParams } from "next/navigation";
 import content from "../../content.json";
 
 const { plot } = content.sheet;
+const { colors, typography } = content.brand;
+
+const pageStyle = {
+  backgroundColor: colors.paper,
+  color: colors.ink,
+  fontFamily: typography.fontFamily,
+  minHeight: "100vh",
+  fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
+};
+
+const wrap = { maxWidth: 720, margin: "0 auto", padding: "2rem 1.25rem" };
+const heading = { color: colors.oxblood, fontWeight: "normal" };
+const label = { display: "block", marginBottom: "0.5rem" };
+const inputStyle = {
+  display: "block",
+  width: "100%",
+  fontFamily: typography.fontFamily,
+  fontSize: "clamp(0.95rem, 2.5vw, 1.1rem)",
+  padding: "0.5rem",
+  border: `1px solid ${colors.hair}`,
+  backgroundColor: colors.paper,
+  color: colors.ink,
+  boxSizing: "border-box",
+};
+const button = {
+  display: "inline-block",
+  backgroundColor: colors.oxblood,
+  color: colors.paper,
+  padding: "0.75rem 1.5rem",
+  border: "none",
+  fontFamily: typography.fontFamily,
+  fontSize: "clamp(1rem, 2.5vw, 1.15rem)",
+  cursor: "pointer",
+};
 
 function PlotForm() {
   const searchParams = useSearchParams();
@@ -14,7 +48,7 @@ function PlotForm() {
   const [givingUp1, setGivingUp1] = useState("");
   const [givingUp2, setGivingUp2] = useState("");
   const [givingUp3, setGivingUp3] = useState("");
-  const [status, setStatus] = useState("loading"); // loading | idle | saving | saved | error
+  const [status, setStatus] = useState("loading");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -36,18 +70,14 @@ function PlotForm() {
         }
         setStatus("idle");
       })
-      .catch(() => {
-        setStatus("idle");
-      });
+      .catch(() => setStatus("idle"));
   }, [submissionId]);
 
   async function handleSubmit(event) {
     event.preventDefault();
     setStatus("saving");
     setMessage("");
-
     const givingUp = [givingUp1, givingUp2, givingUp3].filter((item) => item.trim() !== "");
-
     try {
       const res = await fetch("/api/plot", {
         method: "POST",
@@ -70,89 +100,64 @@ function PlotForm() {
 
   if (!submissionId) {
     return (
-      <main style={{ maxWidth: 720, margin: "0 auto", padding: "2rem" }}>
-        <p>No submissionId given in the page address.</p>
-      </main>
+      <div style={pageStyle}>
+        <main style={wrap}><p>No submissionId given in the page address.</p></main>
+      </div>
     );
   }
 
   return (
-    <main style={{ maxWidth: 720, margin: "0 auto", padding: "2rem" }}>
-      <p>{plot.intro}</p>
-      <form onSubmit={handleSubmit}>
-        {plot.questions.map((q) => {
-          if (q.id === "direction") {
-            return (
-              <div key={q.id} style={{ marginBottom: "1.5rem" }}>
-                <label style={{ display: "block" }}>
-                  {q.question}
-                  <textarea
-                    rows={3}
-                    value={direction}
-                    onChange={(e) => setDirection(e.target.value)}
-                    required
-                    style={{ display: "block", width: "100%" }}
-                  />
-                </label>
-              </div>
-            );
-          }
-          if (q.id === "cost") {
-            return (
-              <div key={q.id} style={{ marginBottom: "1.5rem" }}>
-                <label style={{ display: "block" }}>
-                  {q.question}
-                  <textarea
-                    rows={3}
-                    value={cost}
-                    onChange={(e) => setCost(e.target.value)}
-                    required
-                    style={{ display: "block", width: "100%" }}
-                  />
-                </label>
-              </div>
-            );
-          }
-          if (q.id === "givingUp") {
-            return (
-              <div key={q.id} style={{ marginBottom: "1.5rem" }}>
-                <label style={{ display: "block" }}>{q.question}</label>
-                <input
-                  type="text"
-                  value={givingUp1}
-                  onChange={(e) => setGivingUp1(e.target.value)}
-                  style={{ display: "block", width: "100%", marginBottom: "0.5rem" }}
-                />
-                <input
-                  type="text"
-                  value={givingUp2}
-                  onChange={(e) => setGivingUp2(e.target.value)}
-                  style={{ display: "block", width: "100%", marginBottom: "0.5rem" }}
-                />
-                <input
-                  type="text"
-                  value={givingUp3}
-                  onChange={(e) => setGivingUp3(e.target.value)}
-                  style={{ display: "block", width: "100%" }}
-                />
-              </div>
-            );
-          }
-          return null;
-        })}
-        {status === "error" && message && <p role="alert">{message}</p>}
-        {status === "saved" && <p>{message}</p>}
-        <button type="submit" disabled={status === "saving" || status === "loading"}>
-          {status === "saving" ? "Saving" : "Save"}
-        </button>
-      </form>
-    </main>
+    <div style={pageStyle}>
+      <main style={wrap}>
+        <p>{plot.intro}</p>
+        <form onSubmit={handleSubmit}>
+          {plot.questions.map((q) => {
+            if (q.id === "direction") {
+              return (
+                <div key={q.id} style={{ marginBottom: "1.5rem" }}>
+                  <label style={label}>
+                    {q.question}
+                    <textarea rows={3} value={direction} onChange={(e) => setDirection(e.target.value)} required style={inputStyle} />
+                  </label>
+                </div>
+              );
+            }
+            if (q.id === "cost") {
+              return (
+                <div key={q.id} style={{ marginBottom: "1.5rem" }}>
+                  <label style={label}>
+                    {q.question}
+                    <textarea rows={3} value={cost} onChange={(e) => setCost(e.target.value)} required style={inputStyle} />
+                  </label>
+                </div>
+              );
+            }
+            if (q.id === "givingUp") {
+              return (
+                <div key={q.id} style={{ marginBottom: "1.5rem" }}>
+                  <label style={label}>{q.question}</label>
+                  <input type="text" value={givingUp1} onChange={(e) => setGivingUp1(e.target.value)} style={{ ...inputStyle, marginBottom: "0.5rem" }} />
+                  <input type="text" value={givingUp2} onChange={(e) => setGivingUp2(e.target.value)} style={{ ...inputStyle, marginBottom: "0.5rem" }} />
+                  <input type="text" value={givingUp3} onChange={(e) => setGivingUp3(e.target.value)} style={inputStyle} />
+                </div>
+              );
+            }
+            return null;
+          })}
+          {status === "error" && message && <p role="alert">{message}</p>}
+          {status === "saved" && <p>{message}</p>}
+          <button type="submit" disabled={status === "saving" || status === "loading"} style={button}>
+            {status === "saving" ? "Saving" : "Save"}
+          </button>
+        </form>
+      </main>
+    </div>
   );
 }
 
 export default function PlotPage() {
   return (
-    <Suspense fallback={<main style={{ maxWidth: 720, margin: "0 auto", padding: "2rem" }}><p>Loading</p></main>}>
+    <Suspense fallback={<div style={pageStyle}><main style={wrap}><p>Loading</p></main></div>}>
       <PlotForm />
     </Suspense>
   );
