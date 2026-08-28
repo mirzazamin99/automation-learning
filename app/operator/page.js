@@ -28,7 +28,7 @@ function formatDate(iso) {
 }
 
 function statusText(row) {
-  const parts = [queue.statusLabels[row.draft_status] || row.draft_status];
+  const parts = row.draft_status === "flagged" ? [] : [queue.statusLabels[row.draft_status] || row.draft_status];
   if (row.flagged) parts.push(queue.flaggedLabel);
   if (row.sent) parts.push(queue.sentLabel);
   return parts.join(" · ");
