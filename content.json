@@ -51,7 +51,7 @@
     "isDraftCopy": true
   },
   "reading": {
-    "intro": "Twenty five questions. Answer honestly, nobody sees these but Aamir.",
+    "intro": "Twenty five questions. Answer honestly, nobody sees these but him.",
     "form": {
       "nameLabel": "Name",
       "emailLabel": "Email",
@@ -233,11 +233,11 @@
   "emails": {
     "confirm": {
       "subject": "Your reading, in the next three days",
-      "body": "Thank you for answering these questions honestly. It takes something to sit with the uncomfortable ones. Your reading will be ready within the next three days. This is not a substitute for clinical or medical support. Aamir"
+      "body": "Thank you for answering these questions honestly. It takes something to sit with the uncomfortable ones. Your reading will be ready within the next three days. This is not a substitute for clinical or medical support."
     },
     "delivery": {
       "subject": "Your reading",
-      "body": "Attached is your reading, along with a short video walking through it. Included is a 14-day plan to get started. Aamir"
+      "body": "Attached is your reading, along with a short video walking through it. Included is a 14-day plan to get started."
     }
   },
   "operator": {
