@@ -290,7 +290,8 @@
       "sentOnLabel": "Sent",
       "flaggedNoticeLabel": "This submission was flagged for review.",
       "failedNoticeLabel": "Drafting failed for this submission.",
-      "emailFailedLabel": "Marked as sent, but the email could not be delivered. Send it another way."
+      "emailFailedLabel": "Marked as sent, but the email could not be delivered. Send it another way.",
+      "screeningAnswerLabel": "What they told us before starting"
     }
   },
   "sheet": {

@@ -32,7 +32,17 @@ export default async function OperatorSubmissionPage({ params }) {
           <h1 style={theme.personName}>{submission.name}</h1>
           <p style={theme.subHeading}>{submission.email}</p>
 
-          {submission.flagged && <p style={theme.noticeText}>{detail.flaggedNoticeLabel}</p>}
+          {submission.flagged && (
+            <>
+              <p style={theme.noticeText}>{detail.flaggedNoticeLabel}</p>
+              {submission.screening && (
+                <div style={{ marginTop: "0.75rem" }}>
+                  <p style={theme.fieldLabelText}>{detail.screeningAnswerLabel}</p>
+                  <p style={theme.answerText}>{submission.screening}</p>
+                </div>
+              )}
+            </>
+          )}
           {submission.draft_status === "failed" && (
             <p style={theme.noticeText}>{detail.failedNoticeLabel}</p>
           )}
