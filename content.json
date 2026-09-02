@@ -1,0 +1,465 @@
+{
+  "brand": {
+    "colors": {
+      "ink": "#14110F",
+      "paper": "#F7F4EE",
+      "oxblood": "#6B1D1D",
+      "gold": "#B8860B",
+      "muted": "#6E675F",
+      "hair": "#E3DDD2"
+    },
+    "usage": {
+      "ink": "All body text. Near-black, warm.",
+      "paper": "All backgrounds. Bone, never white.",
+      "oxblood": "The brand colour. Headings and rules.",
+      "gold": "Accent. Almost never, and never twice on one screen.",
+      "muted": "Secondary text only.",
+      "hair": "Borders and rules."
+    },
+    "typography": {
+      "description": "Serif for headings and for body. Wide margins, generous line height, long measure.",
+      "fontFamily": "'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif"
+    },
+    "descriptor": "Life authorship. Read your life. Then write it properly.",
+    "neverUse": [
+      "gradients",
+      "glows",
+      "stock photography",
+      "testimonial cards with stars",
+      "before-and-after imagery",
+      "countdown timers",
+      "exclamation marks",
+      "em dashes in body copy"
+    ],
+    "bannedWords": [
+      "transform",
+      "journey",
+      "unlock",
+      "empower",
+      "mindset",
+      "hustle",
+      "holistic",
+      "wellness",
+      "elevate",
+      "manifest",
+      "best version of yourself",
+      "level up"
+    ]
+  },
+  "flags": {
+    "showPrices": false,
+    "isDraftCopy": true
+  },
+  "reading": {
+    "intro": "Twenty five questions. Answer honestly, nobody sees these but him.",
+    "form": {
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "submitLabel": "Submit",
+      "submittingLabel": "Sending",
+      "successWithEmail": "Thank you. Check your email for confirmation.",
+      "successWithoutEmail": "Thank you. Your answers were saved. The confirmation email could not be sent.",
+      "duplicateError": "You already submitted a reading in the last ten minutes. Check your email, or try again shortly.",
+      "genericError": "Something went wrong. Please try again.",
+      "networkError": "Could not reach the server. Check your connection and try again.",
+      "blankAnswerError": "This question was left blank.",
+      "tooLongError": "This answer is too long. Keep it under 5000 characters.",
+      "formulaCharError": "This answer cannot start a line with =, +, - or @.",
+      "invalidEmailError": "Enter a valid email address.",
+      "nameRequiredError": "Enter your name.",
+      "emailRequiredError": "Enter your email."
+    },
+    "groups": [
+      {
+        "id": "where",
+        "label": "Where you actually are",
+        "questions": [
+          {
+            "id": "q1",
+            "text": "Describe last Sunday, hour by hour, as honestly as you can.",
+            "rows": 4
+          },
+          {
+            "id": "q2",
+            "text": "What did you spend money on in the last week that you would rather not admit to?",
+            "rows": 4
+          },
+          {
+            "id": "q3",
+            "text": "What takes up the most room in your head that you never do anything about?",
+            "rows": 4
+          },
+          {
+            "id": "q4",
+            "text": "When you open your phone without meaning to, what do you open?",
+            "rows": 4
+          },
+          {
+            "id": "q5",
+            "text": "What time did you wake up each day this week, and what happened in the first hour?",
+            "rows": 4
+          },
+          {
+            "id": "q6",
+            "text": "Who did you actually speak to this week, and about what?",
+            "rows": 4
+          }
+        ]
+      },
+      {
+        "id": "want",
+        "label": "What you say you want",
+        "questions": [
+          {
+            "id": "q7",
+            "text": "What have you been about to start for a year now?",
+            "rows": 4
+          },
+          {
+            "id": "q8",
+            "text": "If nothing changes, what will you regret in five years?",
+            "rows": 4
+          },
+          {
+            "id": "q9",
+            "text": "What would you do with a free Tuesday, no obligations at all?",
+            "rows": 4
+          },
+          {
+            "id": "q10",
+            "text": "What do you want that you have never said out loud?",
+            "rows": 4
+          },
+          {
+            "id": "q11",
+            "text": "What are you pretending to want, and for whose benefit?",
+            "rows": 4
+          },
+          {
+            "id": "q12",
+            "text": "What does a normal day look like for the version of you that respects himself?",
+            "rows": 4
+          }
+        ]
+      },
+      {
+        "id": "inTheWay",
+        "label": "What is in the way",
+        "questions": [
+          {
+            "id": "q13",
+            "text": "What is the reason you give people for not starting?",
+            "rows": 4
+          },
+          {
+            "id": "q14",
+            "text": "What is the real reason, the one you do not say out loud?",
+            "rows": 4
+          },
+          {
+            "id": "q15",
+            "text": "What has to become false about you for this to work?",
+            "rows": 4
+          },
+          {
+            "id": "q16",
+            "text": "Who are you performing for when you avoid this?",
+            "rows": 4
+          },
+          {
+            "id": "q17",
+            "text": "What is the last thing you quit, and why did you actually stop?",
+            "rows": 4
+          },
+          {
+            "id": "q18",
+            "text": "What skill did you used to have that you have let go of?",
+            "rows": 4
+          }
+        ]
+      },
+      {
+        "id": "have",
+        "label": "What you already have",
+        "questions": [
+          {
+            "id": "q19",
+            "text": "What good thing have you done this month that nobody gave you credit for?",
+            "rows": 4
+          },
+          {
+            "id": "q20",
+            "text": "Who would help you if you actually asked them?",
+            "rows": 4
+          },
+          {
+            "id": "q21",
+            "text": "What is already working in your life, even if you take it for granted?",
+            "rows": 4
+          },
+          {
+            "id": "q22",
+            "text": "What is the smallest possible thing you could do tomorrow to move forward?",
+            "rows": 4
+          }
+        ]
+      },
+      {
+        "id": "practical",
+        "label": "Practical",
+        "questions": [
+          {
+            "id": "q23",
+            "text": "Being honest and pessimistic, how much time do you actually have each day?",
+            "rows": 4
+          },
+          {
+            "id": "q24",
+            "text": "What stays non-negotiable no matter what?",
+            "rows": 4
+          },
+          {
+            "id": "q25",
+            "text": "What would make the next 14 days worth it?",
+            "rows": 4
+          }
+        ]
+      }
+    ],
+    "prompt": "You are drafting a Reading for Dr Aamir Qayoom to edit. You are not writing to the person. You are writing a draft that a very good writer will rewrite, so give him accurate raw material rather than polished prose he has to undo.\n\nTHE JOB\nRead 25 written answers about one person's life. Produce three things:\n1. What their answers actually say, as distinct from what they think they said. Quote their own words back where a phrase is revealing.\n2. The one thing genuinely in the way. Exactly one. Not a list.\n3. Fourteen days of small specific steps, each one traceable to something they wrote.\n\nWHAT GOOD LOOKS LIKE\nSpecific to the point of being impossible to have generated. If your sentence would fit another person, delete it.\n\nQuote them. Their own sentences are the evidence, and the whole method is reading the text they wrote.\n\nWHEN THE ANSWERS ARE TOO THIN\nSay so, in the notes field, and stop. Do not invent a life from six one-word answers.\n\nWHAT YOU NEVER DO\nNever diagnose. Never use clinical language. Never reassure. Never write a motivational line. Never mention a product, a price, a cohort, or a next step of any kind. Never use: transform, journey, unlock, empower, mindset, holistic, best version of yourself. Never use an exclamation mark or an em dash.\n\nOUTPUT\nReturn validated JSON matching the schema. No prose outside it.",
+    "model": "gemini-3.6-flash",
+    "maxTokens": 6000
+  },
+  "emails": {
+    "confirm": {
+      "subject": "Your reading, in the next three days",
+      "body": "Thank you for answering those. Several of them are uncomfortable and you answered them anyway, which is most of the work.\n\nI read every submission myself and write the page myself. That takes up to three days. You will get one page back and a short video of me reading it to you.\n\nIf something in your life needs clinical support rather than planning, I will say so plainly rather than take you further. [Referral name and number to come]"
+    },
+    "delivery": {
+      "subject": "Your reading",
+      "body": "Attached is your reading, along with a short video walking through it. Included is a 14-day plan to get started."
+    }
+  },
+  "operator": {
+    "unauthenticatedLabel": "Not authenticated.",
+    "login": {
+      "panelTitle": "Reading operator",
+      "tagline": "Their words, your work.",
+      "heading": "Sign in",
+      "passwordLabel": "Password",
+      "submitLabel": "Sign in",
+      "submittingLabel": "Signing in",
+      "errorLabel": "That password is not right."
+    },
+    "queue": {
+      "heading": "Readings",
+      "signOutLabel": "Sign out",
+      "emptyLabel": "No submissions yet.",
+      "flaggedLabel": "Flagged",
+      "sentLabel": "Sent",
+      "loadErrorLabel": "Could not load submissions.",
+      "statusLabels": {
+        "pending": "Pending",
+        "generated": "Drafted",
+        "flagged": "Flagged",
+        "failed": "Failed"
+      }
+    },
+    "detail": {
+      "backLabel": "Back to readings",
+      "answersHeading": "Their answers",
+      "draftHeading": "The draft",
+      "noDraftLabel": "No draft was generated for this submission.",
+      "whatTheyActuallySayLabel": "What they actually say",
+      "theOneThingInTheWayLabel": "The one thing in the way",
+      "fourteenDaysLabel": "Fourteen days",
+      "fourteenDaysHint": "One line for each day.",
+      "notesLabel": "Notes",
+      "saveLabel": "Save",
+      "savingLabel": "Saving",
+      "savedLabel": "Saved",
+      "saveErrorLabel": "Could not save. Try again.",
+      "markAsSentLabel": "Send",
+      "markingAsSentLabel": "Sending",
+      "sentOnLabel": "Sent",
+      "flaggedNoticeLabel": "This submission was flagged for review.",
+      "failedNoticeLabel": "Drafting failed for this submission.",
+      "emailFailedLabel": "Marked as sent, but the email could not be delivered. Send it another way.",
+      "screeningAnswerLabel": "What they told us before starting"
+    }
+  },
+  "sheet": {
+    "plot": {
+      "intro": "A plot has three parts. Answer plainly.",
+      "questions": [
+        {
+          "id": "direction",
+          "label": "Direction",
+          "question": "Where are you actually trying to get to?"
+        },
+        {
+          "id": "cost",
+          "label": "Cost",
+          "question": "What will getting there cost you, really?"
+        },
+        {
+          "id": "givingUp",
+          "label": "What you're giving up",
+          "question": "What are you willing to give up to get there? (Name up to three things.)"
+        }
+      ]
+    },
+    "morning": {
+      "question": "What are you doing today?"
+    },
+    "evening": {
+      "didItQuestion": "Did you do it?",
+      "didItOptions": [
+        "Yes",
+        "No",
+        "Not answered yet"
+      ],
+      "detailQuestion": "What happened?",
+      "detailOptional": true
+    },
+    "revision": {
+      "intro": "The week, in your own words. Answer plainly.",
+      "questions": [
+        {
+          "id": "missedDay",
+          "label": "The day it slipped",
+          "question": "Which day did you not do what you said, and what actually stopped you?"
+        },
+        {
+          "id": "directionCheck",
+          "label": "Direction check",
+          "question": "Does the direction you set still hold, or has it quietly changed?"
+        }
+      ]
+    }
+  },
+  "site": {
+    "draftNotice": "These words are a working draft, not his own, until he replaces them.",
+    "nav": {
+      "wordmark": "Dr. Aamir",
+      "howItWorks": "How it works",
+      "whoItsFor": "Who it's for",
+      "services": "Services",
+      "primaryCta": "Start the reading",
+      "secondaryCta": "Book a consultation"
+    },
+    "hero": {
+      "line1": "Tell me what you did last Sunday.",
+      "line2": "Hour by hour. Most people cannot get past lunch.",
+      "body": "Answer twenty-five questions and I will read your life back to you. One page, written by me, inside three days. There is no charge and nothing to buy afterwards.",
+      "buttonLabel": "Start the reading",
+      "secondaryLabel": "Or book a consultation directly"
+    },
+    "credibility": {
+      "heading": "A different kind of authority",
+      "paragraphs": [
+        "Dr. Aamir holds a PhD in Literary Studies from the University of Delhi and has taught English and literature at university and IB level. He has delivered 23 or more research presentations at national and international conferences and seminars.",
+        "He is also, unmistakably, a people person. Put him in a room and the energy shifts. That same presence is why organizations bring him in not just to coach individuals, but to speak, run live sessions, and create experiences their teams remember."
+      ],
+      "pills": ["PhD, Literary Studies", "23+ Research Presentations", "National & International Conferences"]
+    },
+    "protocol": {
+      "name": "The Direction Protocol",
+      "heading": "Read. Plot. Draft. Revise.",
+      "intro": "Four moves, built on ten years of doing this one conversation at a time. They only work in that order, and the first one starts with the reading above."
+    },
+    "agreeingTo": {
+      "heading": "What you are agreeing to",
+      "paragraphs": [
+        "Twenty-five questions, in writing, about twenty minutes. Several are uncomfortable on purpose. One of them asks where your money went last week, and most people answer that one twice.",
+        "Then I read them. Properly, the way I would read anything else, looking for what the answers are doing rather than what they say.",
+        "Three days later you get a page back: what is actually going on, the one thing in the way, and fourteen days of small moves. I record myself reading it to you, because a page gets skimmed and a voice does not.",
+        "If your answers are too thin to work with, I will tell you that rather than invent something around them."
+      ]
+    },
+    "about": {
+      "heading": "I have never been paid for this.",
+      "paragraphs": [
+        "For about ten years people have asked me to look at their lives, and I have. Friends mostly. Long conversations, then a page. I never charged and I never advertised, and this site is the first time I have treated any of it as more than a favour.",
+        "What I am is a reader. I have a doctorate in Literary Studies from the University of Delhi, and my working life has gone on teaching people to read closely, which means noticing what a text is doing underneath what it claims to be doing.",
+        "Your life is a text. You are writing it every day and you have never read it back. That is not a metaphor I am stretching for effect: the evidence of what you actually want is sitting in your own week, in ordinary detail, and nobody ever goes and looks.",
+        "I am not a therapist. I will not pretend to be one."
+      ]
+    },
+    "method": {
+      "heading": "Read. Plot. Draft. Revise.",
+      "intro": "Four moves, and they only work in that order.",
+      "moves": [
+        {
+          "number": "01",
+          "title": "Read",
+          "body": "The audit. Where your time, money and attention went last month, measured rather than remembered. This is the part where people go quiet."
+        },
+        {
+          "number": "02",
+          "title": "Plot",
+          "body": "What the life is for. Not a list of goals. A direction, what it costs, and what you are giving up in order to go that way, because a plan that gives up nothing is a wish with better handwriting."
+        },
+        {
+          "number": "03",
+          "title": "Draft",
+          "body": "The daily sheet. One page. What today is for."
+        },
+        {
+          "number": "04",
+          "title": "Revise",
+          "body": "Sunday. You reread the week you actually had, and change the one ahead. Every method I have come across skips this, and every one of them stops working somewhere around week three."
+        }
+      ]
+    },
+    "audience": {
+      "heading": "Who this is for",
+      "intro": "This tends to work well for people and teams who:",
+      "items": [
+        "have outgrown advice that isn't built for their actual life",
+        "want a thinking partner, not a hype machine",
+        "are ready to be honest about what they've been avoiding",
+        "lead organizations that want more than a one-off workshop and are ready for real follow-through"
+      ]
+    },
+    "closing": {
+      "heading": "Nothing changes until you decide to read it back.",
+      "buttonLabel": "Start the reading",
+      "secondaryLabel": "Or book a consultation directly"
+    },
+    "refusals": {
+      "heading": "What I will not do",
+      "items": [
+        "I will not tell you your life is fine when the evidence says otherwise.",
+        "I will not work with you if what you need is a therapist. I will say so in the first week, and I will give you a name.",
+        "I will not quote a success rate, because I do not have one that is a record rather than a hope.",
+        "I will not sell you a second thing while the first one is still working."
+      ]
+    },
+    "sheetTeaser": {
+      "heading": "The daily sheet",
+      "paragraphs": [
+        "One page. In the morning it asks what today is for and the single thing that has to happen. At night it asks what actually took the time.",
+        "That last question is the whole instrument. Answer it honestly for a fortnight and you may not need me at all.",
+        "Take it and use it without me. It is free and there is no email to give."
+      ]
+    },
+    "testimonials": {
+      "heading": "There are none on this page",
+      "body": "I have not asked anyone for one. When I have real ones, with permission, they will appear here, and there will be exactly as many as I have."
+    },
+    "boundary": {
+      "heading": "If you are struggling",
+      "paragraphs": [
+        "This is education and planning. It is not therapy and it is not medical care.",
+        "If what you are carrying needs clinical help, I will say so in the first week and give you a name. I would rather lose the work than take money for the wrong thing."
+      ],
+      "referralPlaceholder": "[Referral name and number to come]"
+    },
+    "footer": {
+      "heading": "The Draft",
+      "body": "One page a week. Something worth reading, and one thing worth doing before the next one arrives. No announcements.",
+      "buttonLabel": "Send it to me"
+    }
+  }
+}

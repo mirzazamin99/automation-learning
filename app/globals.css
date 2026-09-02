@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+:root {
+  /* Theme-aware semantic tokens — light values (default) */
+  --surface: #fffdfb;
+  --surface-tint: #f7eee6;
+  --foreground: #1a140f;
+  --foreground-dim: #6b5c4d;
+  --foreground-faint: #9c8a78;
+  --edge: #e7ddd2;
+  --accent-text: #82232f;
+  --accent-soft: #f4dedc;
+
+  /* Closing CTA band — a deliberate contrast surface, tuned per theme */
+  --cta-band: #16110c;
+  --paper: #f4ebdc;
+  --paper-dim: #c7b49b;
+
+  /* Accent — button fill, tuned per theme so it never muddies against a dark ground */
+  --accent: #82232f;
+  --accent-hover: #9a2c3a;
+  --accent-press: #5c1822;
+
+  --font-display: "Bodoni Moda", Georgia, serif;
+  --font-body: "Public Sans", system-ui, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --surface: #3d0f18;
+  --surface-tint: #4a1720;
+  --foreground: #f4ebdc;
+  --foreground-dim: #c7b49b;
+  --foreground-faint: #a8877c;
+  --edge: #5c2a34;
+  --accent-text: #dd8188;
+  --accent-soft: #522029;
+  --cta-band: #1c070d;
+  --accent: #b8324f;
+  --accent-hover: #d13d5c;
+  --accent-press: #8c2540;
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-tint: var(--surface-tint);
+  --color-foreground: var(--foreground);
+  --color-foreground-dim: var(--foreground-dim);
+  --color-foreground-faint: var(--foreground-faint);
+  --color-edge: var(--edge);
+  --color-accent-text: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-cta-band: var(--cta-band);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-press: var(--accent-press);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* {
+  border-color: var(--edge);
+}
+
+html {
+  scrollbar-color: var(--foreground-faint) var(--surface-tint);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-hover);
+  outline-offset: 3px;
+}
+
+input,
+textarea {
+  caret-color: var(--accent-hover);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-tint);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--foreground-faint);
+  border-radius: 999px;
+  border: 3px solid var(--surface-tint);
+}
+
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
