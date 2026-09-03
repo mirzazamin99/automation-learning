@@ -2,14 +2,14 @@
 
 :root {
   /* Theme-aware semantic tokens — light values (default) */
-  --surface: #fffdfb;
-  --surface-tint: #f7eee6;
+  --surface: #f9f1e8;
+  --surface-tint: #f1e4d5;
   --foreground: #1a140f;
   --foreground-dim: #6b5c4d;
   --foreground-faint: #9c8a78;
-  --edge: #e7ddd2;
+  --edge: #ddceba;
   --accent-text: #82232f;
-  --accent-soft: #f4dedc;
+  --accent-soft: #f0d7d4;
 
   /* Closing CTA band — a deliberate contrast surface, tuned per theme */
   --cta-band: #16110c;
@@ -27,7 +27,7 @@
   /* Depth system — tuned per theme so cards read as lifted, not just outlined */
   --shadow-card: 0 1px 2px rgba(26, 20, 15, 0.04), 0 10px 24px -14px rgba(26, 20, 15, 0.14);
   --shadow-card-hover: 0 2px 6px rgba(26, 20, 15, 0.06), 0 20px 38px -16px rgba(26, 20, 15, 0.18);
-  --shadow-glow: 0 0 0 4px var(--accent-soft), 0 10px 30px -12px rgba(130, 35, 47, 0.28);
+  --shadow-glow: 0 0 0 3px var(--accent-soft), 0 8px 20px -14px rgba(130, 35, 47, 0.2);
   --auth-vignette: radial-gradient(120% 100% at 50% -10%, var(--surface-tint) 0%, var(--surface) 62%);
 }
 
