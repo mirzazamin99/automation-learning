@@ -33,7 +33,10 @@ function statusText(row) {
   return parts.join(" · ");
 }
 
-export default async function OperatorQueuePage() {
+export default async function OperatorQueuePage({ searchParams }) {
+  const { show } = (await searchParams) || {};
+  const showAll = show === "all";
+
   const supabaseAdmin = getSupabaseAdmin();
   const { data, error } = await supabaseAdmin
     .from("submissions")
@@ -42,22 +45,38 @@ export default async function OperatorQueuePage() {
 
   if (error) console.error("Queue load failed:", error.message);
 
-  const rows = sortSubmissions(data || []);
+  const allRows = sortSubmissions(data || []);
+  const rows = showAll ? allRows : allRows.filter((row) => !row.sent);
+  const hasSent = allRows.some((row) => row.sent);
 
   return (
     <>
       <OperatorHeader label={queue.signOutLabel} />
       <main className="mx-auto max-w-[1100px] px-6 py-12 md:px-10 md:py-16">
-        <h1 className="font-display text-3xl font-medium text-foreground md:text-4xl">
-          {queue.heading}
-        </h1>
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <h1 className="font-display text-3xl font-medium text-foreground md:text-4xl">
+            {queue.heading}
+          </h1>
+          {hasSent && (
+            <Link
+              href={showAll ? "/operator" : "/operator?show=all"}
+              className="text-sm font-medium text-foreground-faint underline-offset-4 transition-colors duration-300 ease-out hover:text-foreground hover:underline"
+            >
+              {showAll ? queue.showPendingLabel : queue.showSentLabel}
+            </Link>
+          )}
+        </div>
 
         {error && (
           <p className="mt-8 text-base font-medium text-accent-text">{queue.loadErrorLabel}</p>
         )}
 
-        {!error && rows.length === 0 && (
+        {!error && allRows.length === 0 && (
           <p className="mt-8 text-base text-foreground-faint">{queue.emptyLabel}</p>
+        )}
+
+        {!error && allRows.length > 0 && rows.length === 0 && (
+          <p className="mt-8 text-base text-foreground-faint">{queue.allCaughtUpLabel}</p>
         )}
 
         {!error && rows.length > 0 && (
