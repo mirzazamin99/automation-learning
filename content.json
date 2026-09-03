@@ -245,14 +245,14 @@
     "login": {
       "panelTitle": "Reading operator",
       "tagline": "Their words, your work.",
-      "heading": "Sign in",
+      "heading": "Welcome back, Aamir",
       "passwordLabel": "Password",
       "submitLabel": "Sign in",
       "submittingLabel": "Signing in",
       "errorLabel": "That password is not right."
     },
     "queue": {
-      "heading": "Readings",
+      "heading": "Their Words",
       "signOutLabel": "Sign out",
       "emptyLabel": "No submissions yet.",
       "flaggedLabel": "Flagged",
@@ -266,7 +266,7 @@
       }
     },
     "detail": {
-      "backLabel": "Back to readings",
+      "backLabel": "Back to their words",
       "answersHeading": "Their answers",
       "draftHeading": "The draft",
       "noDraftLabel": "No draft was generated for this submission.",

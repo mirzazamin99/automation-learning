@@ -7,7 +7,7 @@ const { detail } = content.operator;
 const { groups } = content.reading;
 
 const textareaClass =
-  "mt-2 block w-full rounded-xl border border-edge bg-surface px-4 py-3 text-base leading-relaxed text-foreground focus-visible:border-accent-hover";
+  "mt-2 block w-full rounded-xl border border-edge bg-surface-tint/60 px-4 py-3 text-base leading-relaxed text-foreground shadow-[0_1px_3px_rgba(0,0,0,0.08)] outline-none transition-all duration-300 ease-out focus-visible:border-accent-hover focus-visible:shadow-[var(--shadow-glow)]";
 
 function draftToFields(source) {
   return {
@@ -79,21 +79,24 @@ export default function OperatorDetailClient({ submission }) {
   return (
     <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-16">
       <section>
-        <h2 className="font-display text-xl font-medium text-foreground">
+        <h2 className="flex items-center gap-3 font-display text-xl font-medium text-foreground">
+          <span className="h-px w-8 bg-accent" aria-hidden="true" />
           {detail.answersHeading}
         </h2>
-        <div className="mt-3 border-t border-edge" />
-        <div className="mt-6 space-y-8">
+        <div className="mt-8 space-y-9">
           {groups.map((group) => (
             <div key={group.id}>
-              <h3 className="text-sm font-medium text-foreground-faint uppercase tracking-wide">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-foreground-faint">
                 {group.label}
               </h3>
-              <div className="mt-3 space-y-5">
+              <div className="mt-4 space-y-4">
                 {group.questions.map((question) => (
-                  <div key={question.id}>
-                    <p className="text-sm font-medium text-foreground-dim">{question.text}</p>
-                    <p className="mt-1 text-base leading-relaxed text-foreground">
+                  <div
+                    key={question.id}
+                    className="rounded-2xl border border-edge bg-surface px-5 py-4 shadow-[var(--shadow-card)]"
+                  >
+                    <p className="text-sm font-semibold text-accent-text">{question.text}</p>
+                    <p className="mt-2 text-base leading-relaxed text-foreground">
                       {submission.answers?.[question.id] || ""}
                     </p>
                   </div>
@@ -105,8 +108,11 @@ export default function OperatorDetailClient({ submission }) {
       </section>
 
       <section>
-        <h2 className="font-display text-xl font-medium text-foreground">{detail.draftHeading}</h2>
-        <div className="mt-3 border-t border-edge" />
+        <h2 className="flex items-center gap-3 font-display text-xl font-medium text-foreground">
+          <span className="h-px w-8 bg-accent" aria-hidden="true" />
+          {detail.draftHeading}
+        </h2>
+        <div className="mt-8" />
 
         {!hasDraft && (
           <p className="mt-6 text-base text-foreground-faint">{detail.noDraftLabel}</p>
@@ -189,7 +195,7 @@ export default function OperatorDetailClient({ submission }) {
                   type="button"
                   onClick={handleMarkAsSent}
                   disabled={sendState === "saving"}
-                  className="rounded-full bg-accent px-6 py-3 text-sm font-medium tracking-wide text-paper shadow-[0_14px_28px_-12px_rgba(130,35,47,0.5)] transition-all duration-300 ease-out hover:bg-accent-hover disabled:opacity-60"
+                  className="rounded-full bg-accent px-6 py-3 text-sm font-medium tracking-wide text-paper shadow-[0_14px_28px_-12px_rgba(130,35,47,0.5)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-[0_20px_38px_-10px_rgba(154,44,58,0.6)] active:translate-y-0 active:bg-accent-press disabled:opacity-60 disabled:hover:translate-y-0"
                 >
                   {sendState === "saving"
                     ? "Sending"

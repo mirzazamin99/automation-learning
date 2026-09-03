@@ -61,7 +61,7 @@ export default async function OperatorQueuePage() {
         )}
 
         {!error && rows.length > 0 && (
-          <div className="mt-10 divide-y divide-edge border-t border-edge">
+          <div className="mt-10 flex flex-col gap-4">
             {rows.map((row) => {
               const marked = row.flagged || row.draft_status === "failed";
               const badgeLabel = row.flagged
@@ -71,7 +71,7 @@ export default async function OperatorQueuePage() {
                 <Link
                   key={row.id}
                   href={`/operator/${row.id}`}
-                  className="flex flex-col gap-3 py-5 transition-colors duration-300 ease-out hover:bg-surface-tint sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-4 sm:-mx-4"
+                  className="flex flex-col gap-3 rounded-2xl border border-edge bg-surface px-5 py-5 shadow-[var(--shadow-card)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-accent-hover/40 hover:shadow-[var(--shadow-card-hover)] sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6"
                 >
                   <div>
                     <p className="font-display text-lg text-foreground">{row.name}</p>

@@ -23,6 +23,12 @@
 
   --font-display: "Bodoni Moda", Georgia, serif;
   --font-body: "Public Sans", system-ui, sans-serif;
+
+  /* Depth system — tuned per theme so cards read as lifted, not just outlined */
+  --shadow-card: 0 1px 2px rgba(26, 20, 15, 0.04), 0 10px 24px -14px rgba(26, 20, 15, 0.14);
+  --shadow-card-hover: 0 2px 6px rgba(26, 20, 15, 0.06), 0 20px 38px -16px rgba(26, 20, 15, 0.18);
+  --shadow-glow: 0 0 0 4px var(--accent-soft), 0 10px 30px -12px rgba(130, 35, 47, 0.28);
+  --auth-vignette: radial-gradient(120% 100% at 50% -10%, var(--surface-tint) 0%, var(--surface) 62%);
 }
 
 :root[data-theme="dark"] {
@@ -38,6 +44,10 @@
   --accent: #b8324f;
   --accent-hover: #d13d5c;
   --accent-press: #8c2540;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px -14px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 3px 8px rgba(0, 0, 0, 0.35), 0 22px 42px -16px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 0 4px var(--accent-soft), 0 12px 34px -10px rgba(184, 50, 79, 0.4);
 }
 
 @theme inline {
