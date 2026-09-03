@@ -1,4 +1,5 @@
 import SignOutButton from "./SignOutButton";
+import ThemeToggle from "../components/ThemeToggle";
 
 export default function OperatorHeader({ label }) {
   return (
@@ -12,7 +13,10 @@ export default function OperatorHeader({ label }) {
             Operator
           </span>
         </div>
-        {label && <SignOutButton label={label} />}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          {label && <SignOutButton label={label} />}
+        </div>
       </div>
     </header>
   );

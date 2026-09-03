@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import content from "../../../content.json";
+import ThemeToggle from "../../components/ThemeToggle";
 
 const { login } = content.operator;
 
@@ -40,7 +41,10 @@ export default function OperatorLoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center px-6 py-16">
+    <main className="relative flex min-h-screen items-center justify-center px-6 py-16">
+      <div className="absolute right-5 top-5">
+        <ThemeToggle />
+      </div>
       <div className="w-full max-w-[400px]">
         <p className="text-center font-display text-lg text-foreground">{login.panelTitle}</p>
         <p className="mt-1.5 text-center text-sm text-foreground-faint">{login.tagline}</p>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import content from "../../content.json";
 import ReadingButton from "./ReadingButton";
+import ThemeToggle, { useTheme } from "./ThemeToggle";
 import { CloseIcon, MenuIcon, MoonIcon, SunIcon } from "./icons";
 
 const { nav } = content.site;
@@ -13,57 +14,6 @@ const NAV_LINKS = [
   { href: "/#who-its-for", label: nav.whoItsFor },
   { href: "/services", label: nav.services },
 ];
-
-function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-
-  useEffect(() => {
-    // Syncs React state to the theme the blocking init script already
-    // applied to the DOM before hydration — reading that external value
-    // is exactly the case this rule means to allow.
-    const current = document.documentElement.getAttribute("data-theme");
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (current === "dark" || current === "light") setTheme(current);
-  }, []);
-
-  const toggle = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.setAttribute("data-theme", next);
-    try {
-      localStorage.setItem("theme", next);
-    } catch {
-      // storage unavailable — theme just won't persist
-    }
-  };
-
-  return { theme, toggle };
-}
-
-function ThemeButton({
-  theme,
-  onToggle,
-  className = "",
-}: {
-  theme: "light" | "dark";
-  onToggle: () => void;
-  className?: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onToggle}
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className={`flex h-10 w-10 items-center justify-center rounded-full text-foreground-dim transition-colors duration-300 ease-out hover:bg-surface-tint hover:text-foreground ${className}`}
-    >
-      {theme === "dark" ? (
-        <SunIcon className="h-[1.15rem] w-[1.15rem]" />
-      ) : (
-        <MoonIcon className="h-[1.15rem] w-[1.15rem]" />
-      )}
-    </button>
-  );
-}
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -111,7 +61,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <ThemeButton theme={theme} onToggle={toggle} />
+          <ThemeToggle />
           <Link
             href="/#consultation"
             className="text-sm font-medium text-foreground-dim transition-colors duration-300 ease-out hover:text-foreground"
@@ -122,7 +72,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-1 md:hidden">
-          <ThemeButton theme={theme} onToggle={toggle} />
+          <ThemeToggle />
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
