@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
 import content from "../../../content.json";
+import Reveal from "../../components/Reveal";
 
 const { reading } = content;
 const { form } = reading;
 
 const inputClass =
-  "block w-full rounded-xl border border-edge bg-surface px-4 py-3 text-base text-foreground placeholder:text-foreground-faint";
+  "block w-full rounded-xl border border-edge bg-surface px-4 py-3 text-base text-foreground placeholder:text-foreground-faint shadow-[0_2px_6px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out outline-none focus-visible:border-accent-hover focus-visible:shadow-[0_0_0_4px_var(--accent-soft),0_2px_10px_rgba(0,0,0,0.15)]";
 
 export default function ReadPage() {
   const [name, setName] = useState("");
@@ -57,62 +58,72 @@ export default function ReadPage() {
 
   return (
     <main className="mx-auto max-w-[720px] px-6 py-16 md:px-12 md:py-24">
-      <p className="text-lg leading-relaxed text-foreground-dim md:text-xl">
-        {reading.intro}
-      </p>
+      <Reveal>
+        <p className="text-lg leading-relaxed text-foreground-dim md:text-xl">
+          {reading.intro}
+        </p>
+      </Reveal>
 
       <form onSubmit={handleSubmit} className="mt-10">
-        <div className="mb-6">
-          <label className="block">
-            <span className="mb-2 block text-sm font-medium text-foreground-dim">
-              {form.nameLabel}
-            </span>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className={inputClass}
-            />
-          </label>
-        </div>
-        <div className="mb-14">
-          <label className="block">
-            <span className="mb-2 block text-sm font-medium text-foreground-dim">
-              {form.emailLabel}
-            </span>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className={inputClass}
-            />
-          </label>
-        </div>
+        <Reveal delay={80}>
+          <div className="mb-7">
+            <label className="block">
+              <span className="mb-2 block text-sm font-medium text-foreground-dim">
+                {form.nameLabel}
+              </span>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className={inputClass}
+              />
+            </label>
+          </div>
+        </Reveal>
+        <Reveal delay={140}>
+          <div className="mb-16">
+            <label className="block">
+              <span className="mb-2 block text-sm font-medium text-foreground-dim">
+                {form.emailLabel}
+              </span>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className={inputClass}
+              />
+            </label>
+          </div>
+        </Reveal>
 
         <div className="divide-y divide-edge border-t border-edge">
           {reading.groups.map((group) => (
-            <section key={group.id} className="py-12 first:pt-0">
-              <h2 className="font-display text-2xl font-medium text-foreground md:text-3xl">
-                {group.label}
-              </h2>
-              <div className="mt-8 space-y-8">
-                {group.questions.map((q) => (
-                  <div key={q.id}>
-                    <label className="block">
-                      <span className="mb-2 block text-base font-medium text-foreground md:text-lg">
-                        {q.text}
-                      </span>
-                      <textarea
-                        rows={q.rows}
-                        value={answers[q.id] || ""}
-                        onChange={(e) => updateAnswer(q.id, e.target.value)}
-                        required
-                        className={inputClass}
-                      />
-                    </label>
-                  </div>
+            <section key={group.id} className="py-14 first:pt-0 md:py-16">
+              <Reveal>
+                <h2 className="font-display text-2xl font-medium text-foreground md:text-3xl">
+                  {group.label}
+                </h2>
+              </Reveal>
+              <div className="mt-10 space-y-11 md:space-y-12">
+                {group.questions.map((q, i) => (
+                  <Reveal key={q.id} delay={Math.min(i, 4) * 60}>
+                    <div>
+                      <label className="block">
+                        <span className="mb-3 block text-base font-medium text-foreground md:text-lg">
+                          {q.text}
+                        </span>
+                        <textarea
+                          rows={q.rows}
+                          value={answers[q.id] || ""}
+                          onChange={(e) => updateAnswer(q.id, e.target.value)}
+                          required
+                          className={inputClass}
+                        />
+                      </label>
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             </section>
@@ -128,7 +139,7 @@ export default function ReadPage() {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="mt-12 inline-flex items-center gap-2.5 rounded-full bg-accent px-8 py-4 font-body text-[0.95rem] font-medium tracking-wide text-paper shadow-[0_14px_28px_-12px_rgba(130,35,47,0.5)] transition-all duration-300 ease-out hover:bg-accent-hover hover:shadow-[0_18px_34px_-10px_rgba(154,44,58,0.55)] active:bg-accent-press disabled:opacity-60"
+          className="mt-12 inline-flex items-center gap-2.5 rounded-full bg-accent px-8 py-4 font-body text-[0.95rem] font-medium tracking-wide text-paper shadow-[0_14px_28px_-12px_rgba(130,35,47,0.5)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-accent-hover hover:shadow-[0_20px_38px_-10px_rgba(154,44,58,0.6)] active:scale-[0.98] active:bg-accent-press disabled:opacity-60 disabled:hover:scale-100 disabled:hover:translate-y-0"
         >
           {status === "submitting" ? form.submittingLabel : form.submitLabel}
         </button>
